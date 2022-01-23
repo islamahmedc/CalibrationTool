@@ -2,26 +2,24 @@ import re
 from tkinter import filedialog
 
 
-start=filedialog.askopenfile(mode='r')
-CAL=filedialog.askopenfile(mode='r')
-end=filedialog.askopenfile(mode='r')
-final = open("C:\\Users\\hp\\Desktop\\New\\final.java",'w')
-filesgroup = [start,CAL,end]
+start=["class hi \n","{\n","    {\n"]
+cal=filedialog.askopenfile(mode='r')
+end=["}\n","\n","    }\n","\n","        }\n"]
+final = open("CalibrationTool/final.java",'w')
 group =[]
 
-
-for workfile in filesgroup :
-    workFileList = workfile.readlines()
-    workFileList[-1]+="\n"
-    # print(workFileList)
-    group+=workFileList
+group+=start
+cal = cal.readlines()
+print(cal)
+cal[-1]+="\n"
+group+=cal
+group+=end
 
 for line in group :  
     print(line,end="")
     final.write(line)
      
 final.close()
-start.close()
-CAL.close()
-end.close()       
+
+      
 
