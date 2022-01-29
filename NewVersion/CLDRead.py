@@ -1,14 +1,11 @@
 import re
 from tkinter import filedialog
-
-genStop = 0
-L_ErrParameters = []
-N_Errs = 0
+from CLDVal import CLDVal
 
 def calRead ():
     # TODO : try and catch if no file is selected
     # calFile = filedialog.askopenfile(mode='r')
-    calFile = open("NewCAL.CLD",'r')
+    calFile = open("CalibrationTool/NewVersion/NewCAL.CLD",'r')
     calList =[]
     calList=calFile.readlines()
     for line in calList :
@@ -21,3 +18,4 @@ def calRead ():
     return calList
 
 print(calRead())
+CLDVal(calRead())
