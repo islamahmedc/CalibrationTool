@@ -4,7 +4,7 @@ from tkinter import filedialog
 def CLDRead ():
     # TODO : try and catch if no file is selected
     # calFile = filedialog.askopenfile(mode='r')
-    calFile = open("CalibrationTool/NewVersion/NewCAL.CLD",'r')
+    calFile = open("NewCAL.CLD",'r')
     calList =[]
     calList=calFile.readlines()
     for line in calList :

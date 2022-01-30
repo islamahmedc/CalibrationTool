@@ -9,5 +9,3 @@ print(CLDRead())
 CLDVal(CLDRead())
 CLDGen()
 
-print()
-print(pathlib.Path().cwd())

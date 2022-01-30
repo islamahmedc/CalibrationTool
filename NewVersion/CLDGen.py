@@ -4,10 +4,17 @@ import CLDVal
 import CLDRead
 
 
+def CreateOutputFolder () :
+    try :
+        Path(Path.cwd()/'Output Files').mkdir()
+    except FileExistsError :
+        pass
+
 
 def CLDGen () :
-    # TODO : os create output directory
-    # Path(Path.cwd()/'hi').mkdir()
+    # TODO : try and catch when file is alreeady created
+    CreateOutputFolder()
+
     if CLDVal.genStop == 1 :
         print("Generation is failed -> Please check the errors")
         # TODO : Generate Errors file
