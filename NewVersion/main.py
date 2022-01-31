@@ -5,7 +5,6 @@ from CLDGen import CLDGen
 import os
 import pathlib
 
-print(CLDRead())
 CLDVal(CLDRead())
 CLDGen()
 
