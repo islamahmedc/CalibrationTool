@@ -3,6 +3,7 @@ from pathlib import Path
 import CLDVal
 import CLDRead
 import CJavaTemplate
+import sys
 
 
 class Max :
@@ -101,7 +102,11 @@ def CLDGen () :
         # exit in case of errors are found in the CLD
         print("Press any key to exit")
         x=input()
+        sys.exit()
     else :
         print("CLD is ok -> C.java Generating ....")
         CreateCJavaFile()
-        # TODO : P.java generation
+        sys.exit()
+
+
+###################################################

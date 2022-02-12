@@ -1,7 +1,13 @@
 import re
 from tkinter import filedialog
+from tkinter import Tk
 import pathlib
 import sys
+
+# hide Tk window
+root = Tk()
+root.withdraw()
+
 
 
 ###################################################
