@@ -1,12 +1,23 @@
 import re
 from tkinter import filedialog
+import pathlib
+import sys
 
 
 ###################################################
 def CLDRead ():
-    # TODO : try and catch if no file is selected
-    # calFile = filedialog.askopenfile(mode='r')
-    calFile = open("NewCAL.CLD",'r')
+    calFile = filedialog.askopenfile(mode='r')
+    # Check that the extension is correct
+    if type(calFile) == type(None) :
+        sys.exit()
+    extension = pathlib.Path(calFile.name).suffix
+    if extension != ".CLD" and extension != ".cld" :
+        print("Incorrect File Type")
+        print("Press Any Key To Exit....")
+        x = input()
+        sys.exit()
+
+    # calFile = open("NewCAL.CLD",'r')
     calList =[]
     calList=calFile.readlines()
     for line in calList :

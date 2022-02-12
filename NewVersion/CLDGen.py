@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 import CLDVal
 import CLDRead
+import CJavaTemplate
 
 
 class Max :
@@ -24,6 +25,7 @@ def ParameterToLine_PreCommnt (L_Parameter_Pre) :
     del L_Parameter_Pre [2:4]
 
     # Update Parameter name
+    # TODO : add Replace function
     L_Parameter_Pre[0] = L_Parameter_Pre[0].replace("KU8" , "public static int ")
     L_Parameter_Pre[0] += " = "
     L_Parameter_Pre[1] += ";"
@@ -73,8 +75,18 @@ def CreateErrorsFile () :
 def CreateCJavaFile () :
     # create new C.java
     CJava = open("Output Files/C.java",'a')
+    # Write Start of C.Java file
+    for line in CJavaTemplate.start :
+        CJava.write(line)
+
+    # Write Calibration of C.Java file
     for Parameter_line in ParameterToLine () :
         CJava.write(Parameter_line)
+
+    # Write End of C.Java file
+    for line in CJavaTemplate.end :
+        CJava.write(line)
+
     CJava.close()
 
 ###################################################
